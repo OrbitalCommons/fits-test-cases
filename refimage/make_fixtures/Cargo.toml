@@ -1,0 +1,12 @@
+[package]
+name = "make_fixtures"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "make_fixtures"
+path = "src/main.rs"
+
+[dependencies]
+chrono = "0.4"
+refimage = "=1.0.0-pre6"
