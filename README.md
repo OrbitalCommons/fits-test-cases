@@ -18,6 +18,11 @@ A curated collection of FITS files for regression testing FITS I/O libraries. Ea
 | `mwa/` | 8 | [MWATelescope](https://github.com/MWATelescope) | MWA radio telescope test data from mwalib, Marlu, Birli, and Hyperdrive. Metafits files, MWAX correlator gpubox data, sky model catalogs, and UVFITS. All MPL-2.0. |
 | `astrometry/` | 1 | [astrometry.net](https://astrometry.net/) | Astrometric solution correspondence table from the astrometry.net solver. |
 | `fermi-gbm/` | 2 | [HEASARC Fermi GBM daily data](https://heasarc.gsfc.nasa.gov/FTP/fermi/data/gbm/daily/) | One gzip-compressed hour of photon events (3.5 million rows, the hour of GRB 200524211) and the matching daily spacecraft position history, in the shape the [blink](https://github.com/hx-guo/blink) burst-search pipeline reads. |
+| `astroburst/` | 9 | [AstroBurst](https://github.com/samuelkriegerbonini-dev/AstroBurst) | Tile-compressed image fixtures from AstroBurst's reader, contributed by Jae-Joon Lee: RICE_1 / GZIP_1 / GZIP_2, 8/16/32-bit and quantized float, 2-D tiles, and the lossless GZIP fallback for unquantizable tiles. AGPL-3.0-or-later. |
+| `tile-compression/` | 14 | [fitsio-pure](https://github.com/OrbitalCommons/fitsio-pure) | HCOMPRESS_1 (lossless, scaled, smoothed, quantized float, 2-D tiles) and PLIO_1 images written with astropy for fitsio-pure's decoder parity tests, with their generator. Apache-2.0. |
+| `refimage/` | 9 | [refimage](https://github.com/sunipkm/refimage) | Uncompressed, GZIP_1, RICE_1 and HCOMPRESS_1 images written by refimage 1.0.0-pre6's own pure-Rust FITS writer, with camera metadata cards and a generator that reproduces them byte for byte. MIT OR Apache-2.0. |
+| `solar-orbiter/` | 2 | [Solar Orbiter EUI Data Release 7.0](https://doi.org/10.24414/djgv-ff95) | Two full-disk 3040 × 3072 RICE_1 frames from the Full Sun Imager: a 17.4 nm image with scaled 16-bit data, and a 30.4 nm short exposure that is almost all `BLANK`, with `BSCALE = 0`. CC BY 4.0. |
+| `benchmarks/` | 7 | Generated with astropy | 26 MP RICE_1 / GZIP_1 / GZIP_2 / uncompressed images for timing readers. Kept on the [`benchmarks-v1` release](https://github.com/OrbitalCommons/fits-test-cases/releases/tag/benchmarks-v1) rather than in the repository; fetch with `scripts/fetch_benchmarks.sh`. |
 
 ## FITS Features Covered
 
@@ -26,7 +31,10 @@ A curated collection of FITS files for regression testing FITS I/O libraries. Ea
 - Binary table extensions
 - ASCII table extensions
 - Random groups format (deprecated, used in UVFITS)
-- Tile-compressed images (Rice algorithm)
+- Tile-compressed images: RICE_1, GZIP_1, GZIP_2 (byte-shuffled), HCOMPRESS_1 (scale and smoothing) and PLIO_1
+- Tile-compressed floats: quantization with `NO_DITHER` and `SUBTRACTIVE_DITHER_1`, global and per-tile `ZSCALE`/`ZZERO`, lossless GZIP floats, and the lossless GZIP fallback for unquantizable tiles
+- Two-dimensional compression tiles, including clipped edge tiles
+- `BLANK` nulls on scaled integer images, and a zero `BSCALE`
 - Boolean columns
 - Multi-dimensional arrays (3D cubes, 4D+ hypercubes)
 - Unsigned integer images via BZERO
@@ -50,6 +58,8 @@ Each `.fits`, `.fit` or `.fit.gz` file has a corresponding `.md` file named afte
 - **HDU structure**: Number and types of HDUs, dimensions, data types
 - **FITS features**: Which aspects of the FITS standard the file exercises
 - **File size**: On-disk size
+
+Small compressed images in `astroburst/`, `tile-compression/` and `refimage/` also have a `<name>.expected` file: astropy's decode of the image as little-endian `float64`, row-major, so a reader can be checked without astropy. cfitsio and fitsio-pure decode all 32 of these images to the same values.
 
 ## Contributing
 
