@@ -7,7 +7,7 @@ A curated collection of FITS files for regression testing FITS I/O libraries. Ea
 | Directory | Files | Source | Description |
 |---|---|---|---|
 | `nasa-samples/` | 15 | [NASA GSFC FITS samples](https://fits.gsfc.nasa.gov/fits_samples.html) | Reference files from HST, EUVE, Astro-1, and other NASA missions. Covers image extensions, binary/ASCII tables, random groups, and tile-compressed images. |
-| `hipsgen/` | 10 | [CDS hipsgen-cat](https://github.com/cds-astro/cds-hipsgen-cat) | HEALPix tiles at various orders from the CDS HiPS tile generator. All single-HDU binary tables with identical schemas. |
+| `hipsgen/` | 10 | [CDS Aladin Hipsgen](https://aladin.cds.unistra.fr/hips/HipsIn10Steps.gml) ([source](https://github.com/cds-astro/aladin/blob/master/src/cds/allsky/HipsGen.java)) | HiPS image tiles at several HEALPix orders from Aladin's HiPS generator (headers name Hipsgen v10.011 and v10.123 where they say): single-HDU primary images, 16-bit 512 × 512 and float32 64 × 64. The 16-bit tiles are as Hipsgen wrote them, with a floating-point `BLANK = -32768.0` and no padding after the data unit. |
 | `rust-fitsio/` | 7 | [rust-fitsio](https://github.com/simonrw/rust-fitsio) | Test fixtures from the Rust `fitsio` crate. Includes boolean columns, hypercubes, unsigned short images, and multi-extension files. |
 | `fitsio-pure-fixtures/` | 6 | [fitsio-pure](https://github.com/OrbitalCommons/fitsio-pure) | Test fixtures from this project's parent library. NICMOS mosaics, IUE spectra, WFPC2 associations, compressed images, and binary tables. |
 | `cfitsio/` | 5 | [HEASARC cfitsio](https://github.com/HEASARC/cfitsio) | Iterator test files from the canonical C FITS library. Binary tables and images used for column/row/image iteration tests. |
