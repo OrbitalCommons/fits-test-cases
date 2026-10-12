@@ -2,8 +2,11 @@
 
 ## Source
 
-Minimal binary table test file created by STScI STSDAS/TABLES (1999-09-07).
-A small synthetic test fixture with 2 rows and 4 columns.
+Minimal binary table test file written by STScI STSDAS/TABLES
+(`ORIGIN = 'STScI-STSDAS/TABLES' / Tables version 1999-09-07`; the HISTORY card
+says it was created 10-Sep-2001). A small synthetic test fixture with 2 rows and
+4 columns. It is byte-identical to astropy's test file `tb.fits`
+(https://github.com/astropy/astropy/blob/main/astropy/io/fits/tests/data/tb.fits).
 
 ## HDU Structure
 
@@ -12,7 +15,7 @@ A small synthetic test fixture with 2 rows and 4 columns.
 | 0   | Primary  | (empty)        | 0 B       |
 | 1   | BINTABLE | 4 cols x 2 rows | 24 B     |
 
-2 HDUs total.
+2 HDUs total. The table has no EXTNAME.
 
 ## Binary Table Columns
 

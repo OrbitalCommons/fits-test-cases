@@ -1,6 +1,6 @@
 # HST_FGS.fits
 
-**Source**: NASA GSFC FITS sample files (https://fits.gsfc.nasa.gov/fits_samples.html)
+**Source**: NASA GSFC FITS sample files (https://fits.gsfc.nasa.gov/fits_samples.html), original file `samples/FGSf64y0106m_a1f.fits`. This copy is byte-identical to the GSFC file (SHA-256 checked 2026-10-11).
 
 **Instrument/Mission**: Hubble Space Telescope (HST), Fine Guidance Sensor 1 (FGS). The FGS instruments are white-light interferometers used for both guiding HST and high-precision astrometry. This file contains a Transfer mode observation with PMT photon counts and star selector encoder data.
 
@@ -12,6 +12,8 @@
 |-----|-------|----------------|------------------------|-----------------------------------------|
 | 0   | Primary | 89688 x 7   |                        | 32-bit integer image (7 data groups)    |
 | 1   | TABLE | 6 cols x 7 rows | f64y0106m_cvt.a1h.tab | ASCII table with per-group WCS metadata |
+
+Image dimensions are given as NAXIS1 x NAXIS2 (columns x rows).
 
 ## FITS Features Exercised
 

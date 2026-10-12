@@ -1,8 +1,8 @@
 # HST_WFPC_II.fits
 
-**Source**: NASA GSFC FITS sample files (https://fits.gsfc.nasa.gov/fits_samples.html)
+**Source**: NASA GSFC FITS sample files (https://fits.gsfc.nasa.gov/fits_samples.html), original file `samples/WFPC2u5780205r_c0fx.fits`. This copy is byte-identical to the GSFC file (SHA-256 checked 2026-10-11).
 
-**Instrument/Mission**: Hubble Space Telescope (HST), Wide Field and Planetary Camera 2 (WFPC2). WFPC2 was HST's primary optical imager from 1993 to 2009 with four 800x800 CCD detectors. This file contains all four chips as a 3D data cube (converted from GEIS format), using the FR533P15 linear ramp filter.
+**Instrument/Mission**: Hubble Space Telescope (HST), Wide Field and Planetary Camera 2 (WFPC2). WFPC2 was HST's primary optical imager from 1993 to 2009 with four 800x800 CCD detectors. This file contains all four chips as a 3D data cube (converted from GEIS format), using the FR533P15 linear ramp filter. Per the GSFC page, each chip was trimmed to 200 x 200 pixels for the sample.
 
 **Object**: NGC 4151, observed 1999-02-20.
 
@@ -12,6 +12,8 @@
 |-----|-------|--------------------|-------------------------|--------------------------------------------|
 | 0   | Primary | 200 x 200 x 4   |                         | 3D float image cube (4 detector chips)     |
 | 1   | TABLE | 49 cols x 4 rows   | u5780205r_cvt.c0h.tab  | ASCII table with per-chip group parameters |
+
+Image dimensions are given as NAXIS1 x NAXIS2 x NAXIS3.
 
 ## FITS Features Exercised
 

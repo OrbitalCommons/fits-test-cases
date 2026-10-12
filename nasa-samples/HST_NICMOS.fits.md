@@ -1,6 +1,6 @@
 # HST_NICMOS.fits
 
-**Source**: NASA GSFC FITS sample files (https://fits.gsfc.nasa.gov/fits_samples.html)
+**Source**: NASA GSFC FITS sample files (https://fits.gsfc.nasa.gov/fits_samples.html), original file `samples/NICMOSn4hk12010_mos.fits`. This copy is byte-identical to the GSFC file (SHA-256 checked 2026-10-11).
 
 **Instrument/Mission**: Hubble Space Telescope (HST), Near Infrared Camera and Multi-Object Spectrometer (NICMOS). NICMOS provided infrared imaging and spectroscopy from 0.8-2.5 microns using three cameras with HgCdTe detector arrays. This is a Camera 2 mosaic observation using the F222M filter (2.2 micron) in MULTIACCUM readout mode, produced by the CALNICB pipeline.
 
@@ -16,6 +16,8 @@
 | 3   | IMAGE | 270 x 263   | DQ      | Data quality flags (BITPIX = 16)  |
 | 4   | IMAGE | 270 x 263   | SAMP    | Number of samples (BITPIX = 16)   |
 | 5   | IMAGE | 270 x 263   | TIME    | Integration time map (BITPIX = -32) |
+
+Image dimensions are given as NAXIS1 x NAXIS2 (columns x rows).
 
 ## FITS Features Exercised
 

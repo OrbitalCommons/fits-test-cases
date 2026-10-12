@@ -4,7 +4,11 @@
 
 VizieR astronomical catalog service (https://vizier.cds.unistra.fr/). Catalog II/278:
 transits observed in OGLE 2001-2003 (Udalski+, 2002-2004). Exported via the VizieR
-binary FITS table interface.
+binary FITS table interface (`asu-binfits`) on 2025-01-31; the full request URL is
+recorded in the `INFO = 'request=...'` card. This copy is byte-identical to
+`samples/vizier/II_278_transit.fits` in the test-file archive of the Rust
+[fitsrs](https://github.com/cds-astro/fitsrs) crate
+(https://alasky.cds.unistra.fr/Aladin-Lite-test-files/fits-rs-test-files.tar, 2.4 GB).
 
 ## HDU Structure
 
@@ -23,7 +27,9 @@ Row width is 64 bytes (11,328 bytes of table data).
 - **TDISP** display format keywords alongside TFORM
 - **Mixed column types**: strings (`11A`, `3A`), doubles (`D`), floats (`E`), short int (`I`), 32-bit int (`J`)
 - **CDS-CAT / CDS-NAME / EXTNAME** VizieR-specific table identification
+- **Blank-keyword cards** carrying continuation text for comments (e.g. the line after
+  `CDS-CAT`, and the VizieR banner in the primary header)
 
 ## File Size
 
-23 KB
+23,040 bytes (23 KB)

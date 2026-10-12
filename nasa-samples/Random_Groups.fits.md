@@ -1,6 +1,6 @@
 # Random_Groups.fits
 
-**Source**: NASA GSFC FITS sample files (https://fits.gsfc.nasa.gov/fits_samples.html)
+**Source**: NASA GSFC FITS sample files (https://fits.gsfc.nasa.gov/fits_samples.html), original file `samples/DDTSUVDATA.fits`. This copy is byte-identical to the GSFC file (SHA-256 checked 2026-10-11).
 
 **Instrument/Mission**: VLA (Very Large Array) radio interferometry. This is a visibility (UV) dataset from AIPS (Astronomical Image Processing System) containing L-band (1420 MHz) radio interferometric observations with 28 antennas. The random groups format is the traditional FITS encoding for radio interferometric visibility data.
 

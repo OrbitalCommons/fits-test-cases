@@ -12,8 +12,8 @@ Four gradient images in all orientations: vertical dark-to-bright (bottom to top
 
 ## HDU Structure
 
-| HDU | Type | EXTNAME | BITPIX | Dimensions | Content |
-|-----|------|---------|--------|------------|---------|
+| HDU | Type | EXTNAME | BITPIX | Dimensions (NAXIS1 x NAXIS2) | Content |
+|-----|------|---------|--------|------------------------------|---------|
 | 0 | Primary | — | 8 | empty | Empty primary |
 | 1 | IMAGE | VERT_BRIGHT_BOT_DARK_TOP | -32 | 128 x 256 | Vertical gradient, 0.0 at the bottom (first stored row) to 1.0 at the top: **the reverse of its EXTNAME** |
 | 2 | IMAGE | HORIZ_BRIGHT_LEFT_DARK_RIGHT | -32 | 256 x 128 | Horizontal gradient 1.0→0.0 |

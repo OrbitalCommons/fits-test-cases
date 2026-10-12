@@ -1,6 +1,6 @@
 # HST_FOS.fits
 
-**Source**: NASA GSFC FITS sample files (https://fits.gsfc.nasa.gov/fits_samples.html)
+**Source**: NASA GSFC FITS sample files (https://fits.gsfc.nasa.gov/fits_samples.html), original file `samples/FOSy19g0309t_c2f.fits`. This copy is byte-identical to the GSFC file (SHA-256 checked 2026-10-11).
 
 **Instrument/Mission**: Hubble Space Telescope (HST), Faint Object Spectrograph (FOS). The FOS was a low-to-medium resolution UV/optical spectrograph operational 1990-1997. It used Digicon detectors (photon-counting linear arrays) to cover 1150-8500 angstroms. This observation used the AMBER detector with the H57 grating and B-2 aperture in spectroscopy mode.
 
@@ -12,6 +12,8 @@
 |-----|-------|------------------|---------------------|--------------------------------------|
 | 0   | Primary | 2064 x 2       |                     | 32-bit float error spectra           |
 | 1   | TABLE | 19 cols x 2 rows | y19g0309t.c2h.tab  | ASCII table with per-group params    |
+
+Image dimensions are given as NAXIS1 x NAXIS2 (columns x rows).
 
 ## FITS Features Exercised
 

@@ -6,7 +6,7 @@
 
 **Instrument/Mission**: Fermi Gamma-ray Space Telescope (GLAST), Gamma-ray Burst Monitor.
 
-**Description**: Spacecraft position and attitude history for 2020-05-24 (23:59:00 the previous day to 00:00:59 the next), one row per second: clock time, attitude quaternion, angular velocity, orbital position and velocity, geographic latitude and longitude, solar array angles and status flags. It is the companion to the TTE file in this directory and is what the [blink](https://github.com/hx-guo/blink) pipeline reads in `blink_fermi_gbm/src/io/poshist.rs`: `SCLK_UTC`, `QSJ_1`..`QSJ_3` (`f64`), `SC_LAT`/`SC_LON` and `POS_X`..`POS_Z` (`f32`) and `FLAGS` (`i16`).
+**Description**: Spacecraft position and attitude history for 2020-05-24 (23:59:00 the previous day to 00:00:59 the next), one row per second: clock time, attitude quaternion, angular velocity, orbital position and velocity, geographic latitude and longitude, solar array angles and status flags. It is the companion to the TTE file in this directory and is what the [blink](https://github.com/hx-guo/blink) pipeline reads in `crates/instruments/blink_fermi_gbm/src/io/poshist.rs`: `SCLK_UTC`, `QSJ_1`..`QSJ_3` (`f64`), `SC_LAT`/`SC_LON` and `POS_X`..`POS_Z` (`f32`) and `FLAGS` (`i16`).
 
 ## HDU Structure
 
@@ -22,6 +22,9 @@ Columns: `SCLK_UTC` (1D, s), `QSJ_1`..`QSJ_4` (1D), `WSJ_1`..`WSJ_3` (1D, rad/s)
 - Unsigned 16-bit column by the `TZERO` convention: `FLAGS` is `1I` with `TZERO19 = 32768`, `TSCAL19 = 1`
 - Wide rows (106 bytes, 19 columns) mixing `D`, `E` and `I` types
 - An `EXTNAME` containing spaces (`GLAST POS HIST`)
+- A Fortran `D` exponent in a real value: `MJDREFF = 7.428703703703703D-4` (in both HDUs)
+- A free-format value card: `TSCAL19 = 1 /` has its value in column 11 rather than right-justified to column 30
+- `CHECKSUM`/`DATASUM` in both HDUs (astropy verifies them without warnings)
 - Empty primary HDU
 
 **File size**: 9,187,200 bytes (8.8 MB)

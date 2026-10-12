@@ -12,8 +12,8 @@ Tests writing and reading non-square image arrays with various aspect ratios. Al
 
 ## HDU Structure
 
-| HDU | Type | EXTNAME | BITPIX | Dimensions | Content |
-|-----|------|---------|--------|------------|---------|
+| HDU | Type | EXTNAME | BITPIX | Dimensions (NAXIS1 x NAXIS2) | Content |
+|-----|------|---------|--------|------------------------------|---------|
 | 0 | Primary | — | 8 | empty | Empty primary |
 | 1 | IMAGE | TALL | -64 | 100 x 200 | Constant 2.0 (f64) |
 | 2 | IMAGE | WIDE | -64 | 200 x 100 | Constant 1.0 (f64) |
@@ -29,4 +29,4 @@ Tests writing and reading non-square image arrays with various aspect ratios. Al
 
 ## File Size
 
-504 KB
+503 KB
