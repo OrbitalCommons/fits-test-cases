@@ -5,22 +5,18 @@
 HST NICMOS Camera 2 mosaic of NGC 4151, observed 1998-05-22 with the F222M
 filter (2.2 micron). MULTIACCUM readout mode, 64-second exposure. Mosaic of 6
 dithered pointings in a spiral pattern (NIC-SPIRAL-DITH). Proposal 7215,
-PI Rodger Thompson. Calibrated through CALNICB pipeline. The original is the
-NASA FITS sample `NICMOSn4hk12010_mos.fits`
-(https://fits.gsfc.nasa.gov/samples/NICMOSn4hk12010_mos.fits, 1,198,080
-bytes), which this corpus also holds intact as `nasa-samples/HST_NICMOS.fits`.
+PI Rodger Thompson. Calibrated through CALNICB pipeline. This is the NASA FITS
+sample `NICMOSn4hk12010_mos.fits`
+(https://fits.gsfc.nasa.gov/samples/NICMOSn4hk12010_mos.fits), byte-identical,
+and the same file as `nasa-samples/HST_NICMOS.fits`.
 
-## Known Defect: Corrupted Copy
+## History
 
-This copy is damaged. It matches the original after a text round trip: the
-bytes were decoded as UTF-8 with backslash escapes for invalid sequences and
-re-encoded (most bytes >= 0x80 became the four ASCII characters `\xNN`), and
-spaces and tabs before newline bytes were also dropped. Only HDU 0 and the SCI
-header are still at their correct offsets. The SCI data reads as garbage
-(values up to 3.4e38, where the original spans -1.09 to 2731), and the ERR,
-DQ, SAMP and TIME headers no longer start on 2880-byte boundaries, so readers
-find only 2 HDUs. Use `nasa-samples/HST_NICMOS.fits` for a valid copy. The
-structure below describes the original.
+Until 2026-10-11 this corpus held a corrupted copy (2,453,667 bytes): a text
+round trip had turned most bytes >= 0x80 into the four ASCII characters `\xNN`,
+changed CR LF to LF and dropped spaces and tabs before newlines, leaving garbage
+SCI data and only 2 readable HDUs. It was replaced with the GSFC original,
+which reproduces the corrupted copy exactly under those transformations.
 
 ## HDU Structure
 
@@ -52,4 +48,4 @@ BITPIX=16.
 
 ## File Size
 
-2,453,667 bytes (2.3 MB) for this corrupted copy; the original is 1,198,080 bytes
+1,198,080 bytes (1.1 MB)

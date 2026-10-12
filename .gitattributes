@@ -1,0 +1,7 @@
+*.fits binary
+*.fit binary
+*.fits.gz binary
+*.fit.gz binary
+*.metafits binary
+*.uvfits binary
+*.expected binary
