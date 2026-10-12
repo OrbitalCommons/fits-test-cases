@@ -66,8 +66,10 @@ Small compressed images in `astroburst/`, `tile-compression/` and `refimage/` al
 To add a new test file:
 
 1. Place it in the appropriate directory (or create a new one)
-2. Add a companion `.md` file documenting the file's structure and provenance
+2. Add a companion `.md` file documenting the file's structure and provenance, written from the file's own header and data
 3. Keep files under 50MB where possible
+4. Copy the file byte for byte from its original source, and record that source. Moving a FITS file through anything that treats it as text corrupts it: five fixtures here were damaged that way before 2026-10-11.
+5. Run `python3 scripts/check_fixtures.py`. CI runs it on every push and pull request. It walks every HDU of every fixture and fails on files that are not whole 2880-byte blocks, have headers off their block boundaries or non-ASCII bytes in headers, lack a `.md`, or are not marked binary in `.gitattributes`. A file that a tool really did write without final padding goes in its `ALLOW_UNPADDED` list, with the reason.
 
 ## License
 
