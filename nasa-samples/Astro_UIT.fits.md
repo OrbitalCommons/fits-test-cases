@@ -1,6 +1,6 @@
 # Astro_UIT.fits
 
-**Source**: NASA GSFC FITS sample files (https://fits.gsfc.nasa.gov/fits_samples.html), original file `samples/UITfuv2582gc.fits` (538,560 bytes). This copy was taken from the fitsrs test-file tarball (https://alasky.cds.unistra.fr/Aladin-Lite-test-files/fits-rs-test-files.tar, `samples/fits.gsfc.nasa.gov/Astro_UIT.fits`) and is byte-identical to that copy, which is corrupted (see below).
+**Source**: NASA GSFC FITS sample files (https://fits.gsfc.nasa.gov/fits_samples.html), file `samples/UITfuv2582gc.fits` (https://fits.gsfc.nasa.gov/samples/UITfuv2582gc.fits), byte-identical.
 
 **Instrument/Mission**: Astro-2 mission (1995), Ultraviolet Imaging Telescope (UIT). The UIT was a 38 cm Ritchey-Chretien telescope that flew on the Space Shuttle as part of the Astro observatory payload. It recorded far-UV images on photographic film using image-intensified cameras with cesium iodide (CsI) photocathodes.
 
@@ -20,8 +20,8 @@
 - Five HISTORY cards documenting the astrometry steps
 - RADECSYS = FK5, EQUINOX = 2000.0
 
-## Known Defect: Corrupted by Text Transcoding
+## History
 
-This file is not a faithful copy of the GSFC original. Compared byte for byte with `UITfuv2582gc.fits`, every byte >= 0x80 has been replaced by the 3-byte UTF-8 replacement character `EF BF BD` (163,125 bytes), and every carriage-return byte (0x0D, 80 of them) has been replaced by a line feed (0x0A). The 11,520-byte header (4 blocks) is unaffected, so the header and keyword values above are correct. The data unit is not: the first replaced byte is at file offset 12,050, and 240,092 of the 262,144 pixels decode to values that differ from the original. The extra bytes push the file 326,250 bytes past the end of the declared data unit, so the file length is not a multiple of 2880 and astropy reports the trailing bytes as an invalid extra HDU. Use this file only as a malformed-file or trailing-garbage case; fetch the GSFC original for real pixel data.
+Until 2026-10-11 this corpus held a corrupted copy, taken from the fitsrs test-file archive (https://alasky.cds.unistra.fr/Aladin-Lite-test-files/fits-rs-test-files.tar), in which every byte >= 0x80 had been replaced by the UTF-8 replacement character `EF BF BD` and every carriage return by a line feed (864,810 bytes, 240,092 pixels wrong). It was replaced with the GSFC original, which reproduces the corrupted copy exactly under that mapping.
 
-**File size**: 864,810 bytes (845 KB); the GSFC original is 538,560 bytes
+**File size**: 538,560 bytes (526 KB)

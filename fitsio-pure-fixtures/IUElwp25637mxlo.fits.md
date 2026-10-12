@@ -5,20 +5,18 @@
 IUE (International Ultraviolet Explorer) merged extracted low-dispersion
 spectrum of NGC 4151. LWP camera, image 25637, large aperture, observed
 1993-05-31. Processed with NEWSIPS pipeline v2.4.3 at GSFC. 660-second
-exposure (LEXPTIME = 659.743), point source extraction. The original is the
-NASA FITS sample `IUElwp25637mxlo.fits`
-(https://fits.gsfc.nasa.gov/samples/IUElwp25637mxlo.fits, 48,960 bytes), which
-this corpus also holds intact as `nasa-samples/IUE_LWP.fits`.
+exposure (LEXPTIME = 659.743), point source extraction. This is the NASA FITS
+sample `IUElwp25637mxlo.fits`
+(https://fits.gsfc.nasa.gov/samples/IUElwp25637mxlo.fits), byte-identical, and
+the same file as `nasa-samples/IUE_LWP.fits`.
 
-## Known Defect: Corrupted Copy
+## History
 
-This copy is damaged. It equals the original after a text round trip: the bytes
-were decoded as UTF-8 with backslash escapes for invalid sequences and
-re-encoded, so most bytes >= 0x80 became the four ASCII characters `\xNN`.
-The headers are pure ASCII and read correctly, but the table data does not:
-NPOINTS reads 604 instead of 640 and WAVELENGTH reads 1.49e34 instead of 1750.
-The file is 10,593 bytes longer than the original and is not a multiple of
-2880 bytes. Use `nasa-samples/IUE_LWP.fits` for a valid copy.
+Until 2026-10-11 this corpus held a corrupted copy: the bytes had been decoded
+as UTF-8 with backslash escapes for invalid sequences and re-encoded, so most
+bytes >= 0x80 became the four ASCII characters `\xNN` (59,553 bytes; NPOINTS
+read 604 instead of 640). It was replaced with the GSFC original, which
+reproduces the corrupted copy exactly under that round trip.
 
 ## HDU Structure
 
@@ -45,4 +43,4 @@ spectrum.
 
 ## File Size
 
-59,553 bytes (58 KB) for this corrupted copy; the original is 48,960 bytes
+48,960 bytes (48 KB)
