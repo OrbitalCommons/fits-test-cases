@@ -1,6 +1,6 @@
 # EUVE.fits
 
-**Source**: NASA GSFC FITS sample files (https://fits.gsfc.nasa.gov/fits_samples.html)
+**Source**: NASA GSFC FITS sample files (https://fits.gsfc.nasa.gov/fits_samples.html), original file `samples/EUVEngc4151imgx.fits`. This copy is byte-identical to the GSFC file (SHA-256 checked 2026-10-11).
 
 **Instrument/Mission**: Extreme Ultraviolet Explorer (EUVE) satellite (1992-2001). EUVE carried four grazing-incidence telescopes that performed an all-sky survey and pointed spectroscopy in the 70-760 angstrom EUV band. This file contains Deep Survey imaging and short/medium/long wavelength spectrometer data.
 
@@ -20,11 +20,14 @@
 | 7   | BINTABLE | 3 cols x 2    | mw_limits        | Filter limits for MW image          |
 | 8   | BINTABLE | 3 cols x 2    | lw_limits        | Filter limits for LW image          |
 
+Image dimensions are given as NAXIS1 x NAXIS2 (columns x rows).
+
 ## FITS Features Exercised
 
 - Empty primary HDU (NAXIS = 0) with metadata only
 - Multiple named IMAGE extensions (EXTNAME)
 - Binary table extensions with mixed column types
 - Mix of IMAGE and BINTABLE extension types in one file
+- Non-standard TDISP1 = 'A' (no width) on the NAME column of all four tables; astropy warns and ignores it
 
 **File size**: 4,291,200 bytes (4.1 MB)

@@ -15,7 +15,7 @@ Single-HDU file with a 16-bit integer image (524,288 bytes of pixel data).
 
 ## FITS Features Exercised
 
-- **BLANK keyword written as a float**, `BLANK = -32768.0`. The standard requires an integer; astropy warns and ignores it, so blank pixels are not recognised as nulls
+- **BLANK keyword written as a float**, `BLANK = -32768.0`. The standard requires an integer; astropy warns and ignores it, so blank pixels are not recognised as nulls. No pixel in this file equals -32768, so ignoring it changes no values here
 - **No padding after the data unit**: the file ends at the last pixel (527,168 bytes) instead of the next 2,880-byte boundary (529,920), so strict readers report it as truncated. Every pixel is present
 - **ORDER / NPIX** HiPS-specific keywords for tile identification
 - **CPYRIGHT** and **COMMENT** cards

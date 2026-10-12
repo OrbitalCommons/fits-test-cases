@@ -1,11 +1,14 @@
 # vari.fits
 
-**Source**: HEASARC cfitsio test suite (https://github.com/HEASARC/cfitsio)
+**Source**: HEASARC cfitsio test suite (https://github.com/HEASARC/cfitsio, `vari.fits` at the repo root; added in CFITSIO 4.6.4 for the `utilities/iter_var.c` example program)
 
 **Description**: Test file with a binary table named COMPRESSED_IMAGE that has
 columns with single-letter and numeric names. Despite the EXTNAME, this is a
-plain BINTABLE (not a tile-compressed image). Used to test column name handling
-and table reading edge cases.
+plain BINTABLE (not a tile-compressed image: there is no ZIMAGE keyword).
+`iter_var.c` moves to the COMPRESSED_IMAGE extension and runs the iterator over
+the COMPRESSED_DATA column, printing its values. Cell values follow the pattern
+row × 10 + column (0-based), from 0.0 in row 0 column `a` to 906.0 in the last
+row, column `g`.
 
 **HDU structure**:
 - HDU 0: Primary (BITPIX=16, NAXIS=0, empty)

@@ -1,12 +1,12 @@
 # square_array.fits
 
-**Source**: rust-fitsio test suite (https://github.com/simonrw/rust-fitsio)
+**Source**: rust-fitsio test suite (https://github.com/simonrw/rust-fitsio, `testdata/square_array.fits`; byte-identical to the upstream copy)
 
 **Description**: Small 2D square integer image used to test basic image reading
 with 32-bit integer pixels.
 
 **HDU structure**:
-- HDU 0: Primary image (BITPIX=32, 5x5 = 25 pixels)
+- HDU 0: Primary image (BITPIX=32, 5x5 = 25 pixels; values 0..24 in file order)
 
 **FITS features exercised**:
 - Square 2D image (equal NAXIS1 and NAXIS2)

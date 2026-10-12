@@ -12,8 +12,8 @@ Tests extreme aspect ratios including nearly-1D arrays. Contains panoramic (wide
 
 ## HDU Structure
 
-| HDU | Type | EXTNAME | BITPIX | Dimensions | Content |
-|-----|------|---------|--------|------------|---------|
+| HDU | Type | EXTNAME | BITPIX | Dimensions (NAXIS1 x NAXIS2) | Content |
+|-----|------|---------|--------|------------------------------|---------|
 | 0 | Primary | — | 8 | empty | Empty primary |
 | 1 | IMAGE | COLUMN | 32 | 50 x 1000 | Constant 1024 (i32) |
 | 2 | IMAGE | PANORAMA | 32 | 1000 x 50 | Constant 512 (i32) |
