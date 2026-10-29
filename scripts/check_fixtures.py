@@ -24,7 +24,7 @@ import sys
 
 BLOCK = 2880
 CARD = 80
-EXTENSIONS = (".fits", ".fit", ".uvfits", ".metafits", ".fits.gz", ".fit.gz")
+EXTENSIONS = (".fits", ".fit", ".uvfits", ".metafits", ".mwaf", ".fits.gz", ".fit.gz")
 
 ALLOW_UNPADDED = {
     "hips/allsky_panstarrs.fits": "HiPS Allsky.fits as CDS distributes it",
