@@ -4,4 +4,5 @@
 *.fit.gz binary
 *.metafits binary
 *.uvfits binary
+*.mwaf binary
 *.expected binary
