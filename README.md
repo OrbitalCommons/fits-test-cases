@@ -19,7 +19,7 @@ A curated collection of FITS files for regression testing FITS I/O libraries. Ea
 | `astrometry/` | 1 | [astrometry.net](https://astrometry.net/) | Astrometric solution correspondence table from the astrometry.net solver. |
 | `fermi-gbm/` | 2 | [HEASARC Fermi GBM daily data](https://heasarc.gsfc.nasa.gov/FTP/fermi/data/gbm/daily/) | One gzip-compressed hour of photon events (3.5 million rows, the hour of GRB 200524211) and the matching daily spacecraft position history, in the shape the [blink](https://github.com/hx-guo/blink) burst-search pipeline reads. |
 | `astroburst/` | 9 | [AstroBurst](https://github.com/samuelkriegerbonini-dev/AstroBurst) | Tile-compressed image fixtures from AstroBurst's reader, contributed by Jae-Joon Lee: RICE_1 / GZIP_1 / GZIP_2, 8/16/32-bit and quantized float, 2-D tiles, and the lossless GZIP fallback for unquantizable tiles. AGPL-3.0-or-later. |
-| `tile-compression/` | 14 | [fitsio-pure](https://github.com/OrbitalCommons/fitsio-pure) | HCOMPRESS_1 (lossless, scaled, smoothed, quantized float, 2-D tiles) and PLIO_1 images written with astropy for fitsio-pure's decoder parity tests, with their generator. Apache-2.0. |
+| `tile-compression/` | 20 | [fitsio-pure](https://github.com/OrbitalCommons/fitsio-pure) | HCOMPRESS_1 (lossless, scaled, smoothed, quantized float, 2-D tiles) and PLIO_1 images written with astropy for fitsio-pure's decoder parity tests, with their generator. Six `fpack_*` images written by the reference `fpack` (CFITSIO 4.6.4), with their generator: lossy HCOMPRESS of saturated `uint16`/`int16`/`uint8` frames, `uint16` PLIO, and RICE and `int16` PLIO controls. Apache-2.0. |
 | `refimage/` | 9 | [refimage](https://github.com/sunipkm/refimage) | Uncompressed, GZIP_1, RICE_1 and HCOMPRESS_1 images written by refimage 1.0.0-pre6's own pure-Rust FITS writer, with camera metadata cards and a generator that reproduces them byte for byte. MIT OR Apache-2.0. |
 | `solar-orbiter/` | 2 | [Solar Orbiter EUI Data Release 7.0](https://doi.org/10.24414/djgv-ff95) | Two full-disk 3040 × 3072 RICE_1 frames from the Full Sun Imager: a 17.4 nm image with scaled 16-bit data, and a 30.4 nm short exposure that is almost all `BLANK`, with `BSCALE = 0`. CC BY 4.0. |
 | `cfitsio-writer/` | 1 | Generated with cfitsio 4.3.1 | Keyword and column cases written by cfitsio's own routines, with the C generator: COMMENT/HISTORY splitting, `LONGSTRN` and `CONTINUE` long strings at the card boundary, `HIERARCH` keys and a `HIERARCH` long string, numeric cards, and unsigned (`TZERO`), signed-byte and bit columns. |
@@ -72,7 +72,7 @@ Each `.fits`, `.fit`, `.fit.gz`, `.uvfits`, `.metafits` or `.mwaf` file has a co
 - **FITS features**: Which aspects of the FITS standard the file exercises
 - **File size**: On-disk size
 
-Small compressed images in `astroburst/`, `tile-compression/` and `refimage/` also have a `<name>.expected` file: astropy's decode of the image as little-endian `float64`, row-major, so a reader can be checked without astropy. cfitsio and fitsio-pure decode all 32 of these images to the same values.
+Small compressed images in `astroburst/`, `tile-compression/` and `refimage/` also have a `<name>.expected` file: astropy's decode of the image as little-endian `float64`, row-major, so a reader can be checked without astropy. cfitsio and fitsio-pure decode all 32 of these images to the same values. The `tile-compression/fpack_*` images' `.expected` files are cfitsio 4.6.4's decode instead (see their `.fits.md`).
 
 ## Contributing
 
