@@ -8,6 +8,8 @@
 
 `fpack_rice_u16_theap_gap.expected` is identical to `fpack_rice_u16.expected`: cfitsio 4.6.4 (by `fpack_expected.c`) and astropy 8.0.3 both decode this file to the original image. The gap is small enough that `THEAP + PCOUNT` stays inside the padded data unit, so readers that take `PCOUNT` as the heap's size from `THEAP` (astropy 8.0.3, fitsverify 4.6.4) read it too; fitsverify reports it OK.
 
+[`fpack_rice_u16_theap_gap_heap_pcount.fits`](fpack_rice_u16_theap_gap_heap_pcount.fits.md) is the same image with `PCOUNT` written the way astropy and fitsverify read it, as the heap's size alone, and documents the discrepancy.
+
 ## HDU Structure
 
 | HDU | Type     | Dimensions | EXTNAME | Description |
